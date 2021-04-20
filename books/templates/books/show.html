@@ -11,14 +11,37 @@
     <title>Django Course</title>
   </head>
   <body>
-    <section class="py-10">
-      <h1 class="text-center text-4xl">{{book.title}}</h1>
-      <div class="flex justify-center">
-        <img src="{{book.thumbnailUrl}}" width="200" />
+    <section class="py-10 flex justify-center">
+      <div class="w-10/12">
+        <h1 class="text-center text-4xl">{{book.title}}</h1>
+        <div class="flex justify-between mt-10">
+          <div class="flex justify-between">
+            <div class="w-3/12">
+              <img src="{{book.thumbnailUrl}}" width="200" />
+            </div>
+            <div class="w-9/12">
+              <p class="text-3xl">About</p>
+              <p class="text-gray-600 mt-5">{{book.shortDescription}}</p>
+
+              <div class="mt-10">
+                <p class="text-3xl">Pages</p>
+                <p class="text-gray-600 mt-5">Total {{book.pageCount}} pages</p>
+              </div>
+
+              <div class="mt-10">
+                <p class="text-3xl">Author</p>
+                <p class="text-gray-600 mt-5">{{book.authors|join:", "}}</p>
+              </div>
+
+              <div class="mt-10">
+                <p class="text-3xl">Description</p>
+                <p class="text-gray-600 mt-4">{{book.longDescription}}</p>
+              </div>
+            </div>
+          </div>
+          <div></div>
+        </div>
       </div>
-      <p>{{book.pageCount}}</p>
-      <p>{{book.shortDescription}}</p>
-      <p>{{book.longDescription}}</p>
     </section>
   </body>
 </html>
