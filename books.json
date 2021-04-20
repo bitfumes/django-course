@@ -1,6 +1,6 @@
 [
   {
-    "_id": 1,
+    "id": 1,
     "title": "Unlocking Android",
     "isbn": "1933988673",
     "pageCount": 416,
@@ -13,7 +13,7 @@
     "categories": ["Open Source", "Mobile"]
   },
   {
-    "_id": 2,
+    "id": 2,
     "title": "Android in Action, Second Edition",
     "isbn": "1935182722",
     "pageCount": 592,
@@ -26,7 +26,7 @@
     "categories": ["Java"]
   },
   {
-    "_id": 3,
+    "id": 3,
     "title": "Specification by Example",
     "isbn": "1617290084",
     "pageCount": 0,
@@ -37,7 +37,7 @@
     "categories": ["Software Engineering"]
   },
   {
-    "_id": 4,
+    "id": 4,
     "title": "Flex 3 in Action",
     "isbn": "1933988746",
     "pageCount": 576,
@@ -49,7 +49,7 @@
     "categories": ["Internet"]
   },
   {
-    "_id": 5,
+    "id": 5,
     "title": "Flex 4 in Action",
     "isbn": "1935182420",
     "pageCount": 600,
@@ -61,7 +61,7 @@
     "categories": ["Internet"]
   },
   {
-    "_id": 6,
+    "id": 6,
     "title": "Collective Intelligence in Action",
     "isbn": "1933988312",
     "pageCount": 425,
@@ -73,7 +73,7 @@
     "categories": ["Internet"]
   },
   {
-    "_id": 7,
+    "id": 7,
     "title": "Zend Framework in Action",
     "isbn": "1933988320",
     "pageCount": 432,
@@ -86,7 +86,7 @@
     "categories": ["Web Development"]
   },
   {
-    "_id": 8,
+    "id": 8,
     "title": "Flex on Java",
     "isbn": "1933988797",
     "pageCount": 265,
@@ -99,7 +99,7 @@
     "categories": ["Internet"]
   },
   {
-    "_id": 9,
+    "id": 9,
     "title": "Griffon in Action",
     "isbn": "1935182234",
     "pageCount": 375,
@@ -112,7 +112,7 @@
     "categories": ["Java"]
   },
   {
-    "_id": 10,
+    "id": 10,
     "title": "OSGi in Depth",
     "isbn": "193518217X",
     "pageCount": 325,

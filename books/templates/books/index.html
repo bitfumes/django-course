@@ -16,7 +16,11 @@
 
       <div class="grid grid-cols-4 gap-4 mt-10">
         {% for book in books %}
-        <a href="#" class="justify-self-center text-center my-4">
+        <a
+          href="/book/{{book.id}}"
+          class="justify-self-center text-center my-4"
+          target="_blank"
+        >
           <div class="flex justify-center">
             <img src="{{book.thumbnailUrl}}" width="200" />
           </div>
