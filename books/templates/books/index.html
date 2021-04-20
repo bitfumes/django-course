@@ -7,7 +7,10 @@
     <title>Django Course</title>
   </head>
   <body>
-    <h1>Django Books App</h1>
-    <h3>{{ name }}</h3>
+    <h1>Programming Books</h1>
+    {% for book in books %}
+    <p>{{ book.title }}</p>
+    <img src="{{book.thumbnailUrl}}" width="200" />
+    {% endfor %}
   </body>
 </html>
