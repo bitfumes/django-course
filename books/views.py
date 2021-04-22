@@ -1,5 +1,5 @@
-from django.shortcuts import render, get_object_or_404
-from books.models import Book
+from django.shortcuts import render, get_object_or_404, redirect
+from books.models import Book, Review
 
 
 def index(request):
@@ -10,5 +10,13 @@ def index(request):
 
 def show(request, id):
     singleBook = get_object_or_404(Book, pk=id)
-    context = {'book': singleBook}
+    reviews = Review.objects.order_by('id')
+    context = {'book': singleBook, 'reviews': reviews}
     return render(request, 'books/show.html', context)
+
+
+def review(request):
+    body = request.POST['review']
+    newReview = Review(body=body)
+    newReview.save()
+    return redirect('/book')
