@@ -37,9 +37,26 @@
                 <p class="text-3xl">Description</p>
                 <p class="text-gray-600 mt-4">{{book.longDescription}}</p>
               </div>
+
+              <div class="mt-10">
+                <form method="POST">
+                  {% csrf_token %}
+                  <textarea
+                    class="border rounded p-2 w-full"
+                    name="review"
+                    placeholder="Write your review here"
+                    rows="5"
+                  ></textarea>
+                  <button
+                    type="submit"
+                    class="float-right border rounded p-2 bg-gray-800 text-white"
+                  >
+                    Submit
+                  </button>
+                </form>
+              </div>
             </div>
           </div>
-          <div></div>
         </div>
       </div>
     </section>
