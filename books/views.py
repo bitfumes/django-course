@@ -1,11 +1,11 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from books.models import Book, Review
+from django.views.generic import ListView
 
 
-def index(request):
-    dbData = Book.objects.all()
-    context = {'books': dbData}
-    return render(request, 'books/index.html', context)
+class BookListView(ListView):
+    def get_queryset(self):
+        return Book.objects.all()
 
 
 def show(request, id):

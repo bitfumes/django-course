@@ -15,7 +15,7 @@
       <h1 class="text-center text-4xl">Programming Books</h1>
 
       <div class="grid grid-cols-4 gap-4 mt-10">
-        {% for book in books %}
+        {% for book in book_list %}
         <a
           href="{% url 'book.show' book.id %}"
           class="justify-self-center text-center my-4"
