@@ -9,8 +9,12 @@ class BookListView(ListView):
 
 
 class BookDetailView(DetailView):
-    #     reviews = Review.objects.filter(book_id=id).order_by('-created_at')
     model = Book
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['reviews'] = context['book'].review_set.order_by('-created_at')
+        return context
 
 
 def review(request, id):
