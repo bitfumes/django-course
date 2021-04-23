@@ -1,70 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
-    <title>Django Course</title>
-  </head>
-  <body>
-    <section class="py-10 flex justify-center">
-      <div class="w-10/12">
-        <h1 class="text-center text-4xl">{{book.title}}</h1>
-        <div class="flex justify-between mt-10">
-          <div class="flex justify-between">
-            <div class="w-3/12">
-              <img src="{{book.thumbnailUrl}}" width="200" />
-            </div>
-            <div class="w-9/12">
-              <p class="text-3xl">About</p>
-              <p class="text-gray-600 mt-5">{{book.shortDescription}}</p>
+{% extends 'books/base.html' %} 
 
-              <div class="mt-10">
-                <p class="text-3xl">Pages</p>
-                <p class="text-gray-600 mt-5">Total {{book.pageCount}} pages</p>
-              </div>
+{% block title %}
+  Bookstore - {{book.title}}
+{% endblock  %}
+  
+{% block content %}
+<div class="w-10/12">
+  <h1 class="text-center text-4xl">{{book.title}}</h1>
+  <div class="flex justify-between mt-10">
+    <div class="flex justify-between">
+      <div class="w-3/12">
+        <img src="{{book.thumbnailUrl}}" width="200" />
+      </div>
+      <div class="w-9/12">
+        <p class="text-3xl">About</p>
+        <p class="text-gray-600 mt-5">{{book.shortDescription}}</p>
 
-              <div class="mt-10">
-                <p class="text-3xl">Author</p>
-                <p class="text-gray-600 mt-5">{{book.authors|join:", "}}</p>
-              </div>
+        <div class="mt-10">
+          <p class="text-3xl">Pages</p>
+          <p class="text-gray-600 mt-5">Total {{book.pageCount}} pages</p>
+        </div>
 
-              <div class="mt-10">
-                <p class="text-3xl">Description</p>
-                <p class="text-gray-600 mt-4">{{book.longDescription}}</p>
-              </div>
+        <div class="mt-10">
+          <p class="text-3xl">Author</p>
+          <p class="text-gray-600 mt-5">{{book.authors|join:", "}}</p>
+        </div>
 
-              <div class="mt-10">
-                <form method="POST" action="{% url 'book.review' book.id %}">
-                  {% csrf_token %}
-                  <textarea
-                    class="border rounded p-2 w-full"
-                    name="review"
-                    placeholder="Write your review here"
-                    rows="5"
-                  ></textarea>
-                  <button
-                    type="submit"
-                    class="float-right border rounded p-2 bg-gray-800 text-white"
-                  >
-                    Submit
-                  </button>
-                </form>
-              </div>
+        <div class="mt-10">
+          <p class="text-3xl">Description</p>
+          <p class="text-gray-600 mt-4">{{book.longDescription}}</p>
+        </div>
 
-              <div class="mt-10">
-                {% for review in reviews %}
-                <p>{{review.body}}</p>
-                {% endfor %}
-              </div>
-            </div>
-          </div>
+        <div class="mt-10">
+          <form method="POST" action="{% url 'book.review' book.id %}">
+            {% csrf_token %}
+            <textarea
+              class="border rounded p-2 w-full"
+              name="review"
+              placeholder="Write your review here"
+              rows="5"
+            ></textarea>
+            <button
+              type="submit"
+              class="float-right border rounded p-2 bg-gray-800 text-white"
+            >
+              Submit
+            </button>
+          </form>
+        </div>
+
+        <div class="mt-10">
+          {% for review in reviews %}
+          <p>{{review.body}}</p>
+          {% endfor %}
         </div>
       </div>
-    </section>
-  </body>
-</html>
+    </div>
+  </div>
+</div>
+{% endblock %}

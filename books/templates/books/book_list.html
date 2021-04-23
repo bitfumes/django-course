@@ -1,33 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
-    <title>Django Course</title>
-  </head>
-  <body>
-    <section class="py-10">
-      <h1 class="text-center text-4xl">Programming Books</h1>
+{% extends 'books/base.html' %} 
 
-      <div class="grid grid-cols-4 gap-4 mt-10">
-        {% for book in book_list %}
-        <a
-          href="{% url 'book.show' book.id %}"
-          class="justify-self-center text-center my-4"
-          target="_blank"
-        >
-          <div class="flex justify-center">
-            <img src="{{book.thumbnailUrl}}" width="200" />
-          </div>
-          <p class="text-lg text-gray-700">{{ book.title }}</p>
-        </a>
-        {% endfor %}
-      </div>
-    </section>
-  </body>
-</html>
+{% block title %} Bookstore - Books {% endblock%} 
+
+
+{% block content %}
+<div>
+<h1 class="text-center text-4xl">Programming Books</h1>
+
+<div class="grid grid-cols-4 gap-4 mt-10">
+  {% for book in book_list %}
+  <a
+    href="{% url 'book.show' book.id %}"
+    class="justify-self-center text-center my-4"
+    target="_blank"
+  >
+    <div class="flex justify-center">
+      <img src="{{book.thumbnailUrl}}" width="200" />
+    </div>
+    <p class="text-lg text-gray-700">{{ book.title }}</p>
+  </a>
+  {% endfor %}
+</div>
+</div>
+{% endblock %}
