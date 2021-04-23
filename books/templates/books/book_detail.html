@@ -23,7 +23,11 @@
 
         <div class="mt-10">
           <p class="text-3xl">Author</p>
-          <p class="text-gray-600 mt-5">{{book.authors|join:", "}}</p>
+          <p class="text-gray-600 mt-5">
+          {% for author in authors %}
+            {{author}},
+            {% endfor %}
+          </p>
         </div>
 
         <div class="mt-10">
