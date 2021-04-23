@@ -1,9 +1,9 @@
-{% extends 'books/base.html' %} 
+{% extends 'books/base.html' %}
 
 {% block title %}
   Bookstore - {{book.title}}
 {% endblock  %}
-  
+
 {% block content %}
 <div class="w-10/12">
   <h1 class="text-center text-4xl">{{book.title}}</h1>
@@ -23,11 +23,11 @@
 
         <div class="mt-10">
           <p class="text-3xl">Author</p>
-          <p class="text-gray-600 mt-5">
+          <div class="text-gray-600 mt-5">
           {% for author in authors %}
-            {{author}},
+            <a href={% url 'author.books' author %}>{{author}}</a>,
             {% endfor %}
-          </p>
+          </>
         </div>
 
         <div class="mt-10">

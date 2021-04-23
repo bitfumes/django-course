@@ -18,6 +18,12 @@ class BookDetailView(DetailView):
         return context
 
 
+def author(request, author):
+    books = Book.objects.filter(authors__name=author)
+    context = {'book_list': books}
+    return render(request, 'books/book_list.html', context)
+
+
 def review(request, id):
     body = request.POST['review']
     newReview = Review(body=body, book_id=id)
