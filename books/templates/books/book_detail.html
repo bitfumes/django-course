@@ -4,9 +4,14 @@
   Bookstore - {{book.title}}
 {% endblock  %}
 
+
+{% block nav_title %}
+{{book.title}}
+{% endblock %}
+  
+
 {% block content %}
 <div class="w-10/12">
-  <h1 class="text-center text-4xl">{{book.title}}</h1>
   <div class="flex justify-between mt-10">
     <div class="flex justify-between">
       <div class="w-3/12">

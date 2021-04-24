@@ -3,9 +3,14 @@
 {% block title %} Bookstore - Books {% endblock%} 
 
 
+{% block nav_title %}
+Programming Books
+{% endblock nav_title %}
+  
+
 {% block content %}
 <div>
-<h1 class="text-center text-4xl">Programming Books</h1>
+
 
 <div class="grid grid-cols-4 gap-4 mt-10">
   {% for book in book_list %}

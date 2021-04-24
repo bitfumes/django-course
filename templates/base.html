@@ -11,6 +11,25 @@
     <title>{% block title %} Django Course {% endblock %}</title>
   </head>
   <body>
+    <nav class="p-4 flex justify-between bg-green-800 text-white w-full">
+      <div class="flex flex-col justify-center">
+        <p>My BookStore</p>
+      </div>
+
+      <h1 class="text-center text-4xl">
+      {% block nav_title %}
+        
+      {% endblock %}
+        </h1>
+
+      <div class="flex justify-end">
+        {% if user.is_authenticated %}
+        <div>
+          <a href="/logout" class="p-2 rounded bg-gray-700 text-white">Logout</a>
+        </div>
+        {% endif %}
+      </div>
+    </nav>
     <section class="py-10 flex justify-center">
       {% block content %}
       <!-- When we extend this, all content comes here -->
