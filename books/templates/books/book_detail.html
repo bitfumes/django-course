@@ -8,7 +8,7 @@
 {% block nav_title %}
 {{book.title}}
 {% endblock %}
-  
+
 
 {% block content %}
 <div class="w-10/12">
@@ -41,6 +41,7 @@
         </div>
 
         <div class="mt-10">
+          {% if user.is_authenticated %}
           <form method="POST" action="{% url 'book.review' book.id %}">
             {% csrf_token %}
             <textarea
@@ -56,6 +57,11 @@
               Submit
             </button>
           </form>
+          {% else %}
+          <p>
+            <a class="text-blue-600" href="{% url 'login' %}?next={{request.path}}">Login</a> to write review
+          </p>
+          {% endif %}
         </div>
 
         <div class="mt-10">
