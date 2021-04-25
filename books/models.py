@@ -14,7 +14,6 @@ class Author(models.Model):
 class Book(models.Model):
     title = models.CharField(max_length=256)
     pageCount = models.IntegerField(default=0)
-    thumbnailUrl = models.CharField(max_length=256, null=True)
     shortDescription = models.CharField(max_length=256, null=True)
     longDescription = models.TextField(null=True)
     authors = models.ManyToManyField(Author)
@@ -29,3 +28,4 @@ class Review(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     created_at = models.DateTimeField(auto_now=True)
     book = models.ForeignKey(Book, on_delete=models.CASCADE, null=True)
+    image = models.ImageField(upload_to="images/review", null=True)
