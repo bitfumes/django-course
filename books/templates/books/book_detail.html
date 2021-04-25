@@ -64,9 +64,15 @@
           {% endif %}
         </div>
 
-        <div class="mt-10">
+        <div class="mt-20">
           {% for review in reviews %}
-          <p>{{review.body}}</p>
+          <div class="my-6">
+            <div class="flex justify-between">
+              <p class="text-gray-400">{{review.user}}</p>
+              <p class="text-gray-400">{{review.created_at}}</p>
+            </div>
+            <p>{{review.body}}</p>
+          </div>
           {% endfor %}
         </div>
       </div>
