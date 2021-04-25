@@ -44,13 +44,7 @@
           {% if user.is_authenticated %}
           <form method="POST" action="{% url 'book.review' book.id %}" enctype="multipart/form-data">
             {% csrf_token %}
-            <textarea
-              class="border rounded p-2 w-full"
-              name="review"
-              placeholder="Write your review here"
-              rows="5"
-            ></textarea>
-            <input type="file" name="image" >
+            {{form.as_p}}
             <button
               type="submit"
               class="float-right border rounded p-2 bg-gray-800 text-white"
