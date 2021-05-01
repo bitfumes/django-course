@@ -29,15 +29,8 @@ def author(request, author):
 
 def review(request, id):
     if request.user.is_authenticated:
-        body = request.POST['body']
-        newReview = Review(body=body, book_id=id,
-                           user=request.user)
-
-        if len(request.FILES) != 0:
-            image = request.FILES['image']
-            fs = FileSystemStorage()
-            name = fs.save(image.name, image)
-            newReview.image = fs.url(name)
-
-        newReview.save()
-    return redirect('/book')
+        newReview = Review(book_id=id, user=request.user)
+        form = ReviewForm(request.POST, request.FILES, instance=newReview)
+        if form.is_valid():
+            form.save()
+    return redirect(f"/book/{id}")
