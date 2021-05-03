@@ -5,6 +5,7 @@ manage.py check --deploy
 3. database
     pip install dj-database-url
     pip install psycopg2-binary
+    import dj_database_url
     dj_database_url.config(conn_max_age=500)
 4. serving static files
     static root
